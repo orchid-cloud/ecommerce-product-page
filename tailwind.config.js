@@ -1,10 +1,38 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./*.{html,js}"],
+  content: ['./*.{html,js}'],
   theme: {
+    screens: {
+      sm: { min: '280px', max: '540px' },
+      // => @media (min-width: 280px and max-width: 540px) { ... }
+
+      md: { min: '541px', max: '768px' },
+      // => @media (min-width: 540px and max-width: 768px) { ... }
+
+      lg: { min: '769px', max: '992px' },
+      // => @media (min-width: 769px and max-width: 992px) { ... }
+
+      xl: '993px',
+      // => @media (min-width: 993px) { ... }
+
+      // '2xl': '1536px',
+      // // => @media (min-width: 1536px) { ... }
+    },
     extend: {
+      width: {
+        '450px': '28rem',
+        '1020px': '64rem',
+      },
+      backgroundImage: {
+        'main-image': "url('../images/image-product-1.jpg')",
+      },
       colors: {
-        orange_font: "var(--orange-font)",
+        orange: 'var(--orange)',
+        pale_orange: 'var(--pale-orange)',
+        light_gray: 'var(--light-gray)',
+        dark_gray: 'var(--dark-gray)',
+        grayish_blue: 'var(--grayish_blue)',
+        white: 'var(--white)',
       },
     },
   },
