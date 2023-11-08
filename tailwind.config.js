@@ -25,16 +25,23 @@ module.exports = {
       },
       backgroundImage: {
         'main-image': "url('../images/image-product-1.jpg')",
+        'hamburger': "url('../images/icon-menu.svg')",
+        'closed': "url('../images/icon-close.svg')",
       },
       colors: {
         orange: 'var(--orange)',
+        orange_svg: '#ff7d1a',
         pale_orange: 'var(--pale-orange)',
         light_gray: 'var(--light-gray)',
         dark_gray: 'var(--dark-gray)',
         grayish_blue: 'var(--grayish_blue)',
         white: 'var(--white)',
       },
+      variants: {
+        fill: ['responsive', 'hover', 'focus'],
+      },
     },
   },
+
   plugins: [],
 };

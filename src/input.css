@@ -12,5 +12,13 @@
 }
 
 html {
-  font-family: "Kumbh Sans", sans-serif;
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+.mobile-nav-toggle[aria-expanded='true'] {
+  background-image: url(../images/icon-close.svg);
+}
+
+.nav[data-visible='true'] {
+  transform: translateX(0%);
 }
