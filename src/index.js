@@ -23,3 +23,14 @@ function closeNav() {
   document.body.style.position = '';
   document.body.style.top = '';
 }
+
+document.addEventListener('click', (event) => {
+  if (event.target.closest('#mobile-nav-toggle')) return;
+
+  if (
+    navigation.getAttribute('data-visible') === 'true' &&
+    !event.target.closest('nav')
+  ) {
+    closeNav();
+  }
+});
