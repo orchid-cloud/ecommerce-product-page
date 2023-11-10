@@ -19,6 +19,6 @@ html {
   background-image: url(../images/icon-close.svg);
 }
 
-.nav[data-visible='true'] {
+/* .nav[data-visible='true'] {
   transform: translateX(0%);
-}
+} */
