@@ -19,6 +19,8 @@ html {
   background-image: url(../images/icon-close.svg);
 }
 
-/* .nav[data-visible='true'] {
-  transform: translateX(0%);
-} */
+.slide[data-active] {
+  opacity: 1;
+  z-index: 1;
+  transition-delay: 0ms;
+}
