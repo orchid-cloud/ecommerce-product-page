@@ -35,6 +35,8 @@ document.addEventListener('click', (event) => {
   }
 });
 
+//carousel for mobile
+
 const buttons = document.querySelectorAll('[data-carousel-button]');
 
 buttons.forEach((button) => {
@@ -54,3 +56,72 @@ buttons.forEach((button) => {
     delete activeSlide.dataset.active;
   });
 });
+
+//lightbox in desktop mode
+
+// const lightbox = document.createElement('div');
+// lightbox.id = 'lightbox';
+// document.body.appendChild(lightbox);
+
+// const images = document.querySelectorAll('img');
+// images.forEach((image) => {
+//   image.addEventListener('click', () => {
+//     lightbox.classList.add('active');
+
+//     const img = document.createElement('img');
+//     img.src = image.src;
+//     while (lightbox.firstChild) {
+//       lightbox.removeChild(lightbox.firstChild);
+//     }
+//     lightbox.appendChild(img);
+//   });
+// });
+
+// lightbox.addEventListener('click', (e) => {
+//   if (e.target !== e.currentTarget) {
+//     return;
+//   } else {
+//     lightbox.classList.remove('active');
+//   }
+// });
+
+const productPic1 = document.getElementById('picture_1');
+const lightbox = document.getElementById('lightbox');
+
+productPic1.addEventListener('click', () => {
+  const lightboxVisibility = lightbox.getAttribute('data-visible');
+
+  if (lightboxVisibility === 'false') {
+    lightbox.setAttribute('data-visible', 'true');
+  }
+});
+
+function lightboxIsOpen() {
+  return lightbox.getAttribute('data-visible') === 'true';
+}
+
+function closeLightbox() {
+  lightbox.setAttribute('data-visible', 'false');
+}
+
+document.addEventListener('click', (event) => {
+  if (
+    lightboxIsOpen() &&
+    (event.target.id === 'lightbox' || event.target.closest('#close-lightbox'))
+  ) {
+    closeLightbox();
+  }
+});
+
+document.onkeydown = function (evt) {
+  evt = evt || window.event;
+  var isEscape = false;
+  if ('key' in evt) {
+    isEscape = evt.key === 'Escape' || evt.key === 'Esc';
+  } else {
+    isEscape = evt.keyCode === 27;
+  }
+  if (isEscape) {
+    lightboxIsOpen() && closeLightbox();
+  }
+};

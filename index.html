@@ -182,10 +182,11 @@
 
           <div class="pictures">
             <div
-              class="main-picture sm:hidden md:hidden lg:hidden xl:w-[28rem]"
+              class="main-picture sm:hidden md:hidden lg:hidden xl:w-[28rem] "
             >
               <img
-                class="xl:rounded-xl xl:mb-7"
+                id="picture_1"
+                class="xl:rounded-xl xl:mb-7 xl:cursor-pointer"
                 src="./images/image-product-1.jpg"
                 alt="main picture of a product"
               />
@@ -321,27 +322,27 @@
           </div>
         </div>
         <div
-          class="rest-pictures sm:hidden md:hidden lg:hidden xl:flex xl:gap-5"
+          class="rest-pictures sm:hidden md:hidden lg:hidden xl:flex xl:gap-5 xl:ml-20"
         >
           <img
-            class="xl:w-24 xl:h-24 xl:rounded-md"
-            src="./images/image-product-1-thumbnail.jpg"
+            class="cursor-pointer xl:w-24 xl:h-24 xl:rounded-md"
+            src="./images/image-product-1.jpg"
             alt="1 image of a product"
           />
           <img
-            class="xl:w-24 xl:h-24 xl:rounded-md"
-            src="./images/image-product-2-thumbnail.jpg"
+            class="cursor-pointer xl:w-24 xl:h-24 xl:rounded-md"
+            src="./images/image-product-2.jpg"
             alt="2 image of a product"
           />
 
           <img
-            class="xl:w-24 xl:h-24 xl:rounded-md"
-            src="./images/image-product-3-thumbnail.jpg"
+            class="cursor-pointer xl:w-24 xl:h-24 xl:rounded-md"
+            src="./images/image-product-3.jpg"
             alt="3 image of a product"
           />
           <img
-            class="xl:w-24 xl:h-24 xl:rounded-md"
-            src="./images/image-product-4-thumbnail.jpg"
+            class="cursor-pointer xl:w-24 xl:h-24 xl:rounded-md"
+            src="./images/image-product-4.jpg"
             alt="4 image of a product"
           />
         </div>
@@ -353,6 +354,108 @@
           >Frontend Mentor</a
         >. Coded by <a href="#">Natalia Zaidenberg</a>.
       </footer>
+    </div>
+
+    <div
+      id="lightbox"
+      class="data-[visible=false]:hidden lightbox-content bg-lightbox_bg fixed z-[200] top-0 w-full h-full flex justify-center"
+      data-visible="false"
+    >
+      <div class="flex flex-col justify-center items-center">
+        <div class="self-end mb-5">
+          <button id="close-lightbox" class="group">
+            <svg
+              class="group-hover:fill-[#ff7d1a]  fill-white"
+              width="14"
+              height="15"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
+                stroke-width="1"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="relative w-[28rem] mb-10 ">
+          <img
+            class="rounded-xl"
+            src="./images/image-product-1.jpg"
+            alt="main picture of a product"
+          />
+          <button
+            href="/"
+            class="group absolute bottom-2/4 left-[-1.25rem] bg-white w-10 h-10 rounded-full flex justify-center items-center"
+          >
+            <svg
+              class="group-hover:stroke-[#ff7d1a] stroke-[#1D2026] fill-none"
+              width="12"
+              height="18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M11 1 3 9l8 8" stroke-width="3" fill-rule="evenodd" />
+            </svg>
+          </button>
+          <button
+            href="/"
+            class="group absolute bottom-2/4 right-[-1.25rem] bg-white w-10 h-10 rounded-full flex justify-center items-center"
+          >
+            <svg
+              class="group-hover:stroke-[#ff7d1a] stroke-[#1D2026] fill-none"
+              width="13"
+              height="18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="m2 1 8 8-8 8" stroke-width="3" fill-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+        <div class="flex gap-5 ">
+          <div class="relative w-20 h-20 rounded-md overflow-hidden">
+            <div
+              class="absolute w-full h-full rounded-md hover:bg-white hover:opacity-70"
+            ></div>
+            <img
+              src="./images/image-product-1.jpg"
+              alt="1 image of a product"
+            />
+          </div>
+
+          <div class="relative w-20 h-20 rounded-md overflow-hidden">
+            <div
+              class="absolute w-full h-full rounded-md hover:bg-white hover:opacity-70"
+            ></div>
+            <img
+              class="cursor-pointer w-20 h-20 rounded-md"
+              src="./images/image-product-2.jpg"
+              alt="2 image of a product"
+            />
+          </div>
+
+          <div class="relative w-20 h-20 rounded-md overflow-hidden">
+            <div
+              class="absolute w-full h-full rounded-md hover:bg-white hover:opacity-70"
+            ></div>
+            <img
+              class="cursor-pointer w-20 h-20 rounded-md"
+              src="./images/image-product-3.jpg"
+              alt="3 image of a product"
+            />
+          </div>
+
+          <div class="relative w-20 h-20 rounded-md overflow-hidden">
+            <div
+              class="absolute w-full h-full rounded-md hover:bg-white hover:opacity-70"
+            ></div>
+            <img
+              class="cursor-pointer w-20 h-20 rounded-md"
+              src="./images/image-product-4.jpg"
+              alt="4 image of a product"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

@@ -33,6 +33,7 @@ module.exports = {
         dark_gray: 'var(--dark-gray)',
         grayish_blue: 'var(--grayish_blue)',
         white: 'var(--white)',
+        lightbox_bg: 'var(--lightbox-bg)',
       },
       variants: {
         fill: ['responsive', 'hover', 'focus'],
