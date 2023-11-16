@@ -113,6 +113,8 @@ document.addEventListener('click', (event) => {
   }
 });
 
+//close on escape btn
+
 document.onkeydown = function (evt) {
   evt = evt || window.event;
   var isEscape = false;
@@ -125,3 +127,14 @@ document.onkeydown = function (evt) {
     lightboxIsOpen() && closeLightbox();
   }
 };
+
+//lightbox image slider
+
+let mainImg = document.getElementById('main-img');
+
+document.querySelectorAll('[data-thumbs-item]').forEach((el) =>
+  el.addEventListener('click', (e) => {
+    let src = e.currentTarget.querySelector('img').src;
+    mainImg.src = src;
+  })
+);
