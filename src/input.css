@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .thumbnail-active {
+    @apply border-orange border-2 bg-white opacity-70;
+  }
+}
+
 :root {
   --orange: hsl(26, 100%, 55%);
   --pale-orange: hsl(25, 100%, 94%);
@@ -24,6 +30,11 @@ html {
   opacity: 1;
   z-index: 1;
   transition-delay: 0ms;
+}
+
+.thumbnail-active {
+  border: 1px solid var(--orange);
+  background: rgba(255, 255, 255, 0.7);
 }
 
 /* #lightbox {

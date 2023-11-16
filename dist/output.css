@@ -931,6 +931,11 @@ html {
   transition-delay: 0ms;
 }
 
+.thumbnail-active {
+  border: 1px solid var(--orange);
+  background: rgba(255, 255, 255, 0.7);
+}
+
 /* #lightbox {
   position: fixed;
   z-index: 1000;

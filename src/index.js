@@ -128,13 +128,22 @@ document.onkeydown = function (evt) {
   }
 };
 
-//lightbox image slider
+//lightbox image slider on thumbnail click
 
 let mainImg = document.getElementById('main-img');
 
 document.querySelectorAll('[data-thumbs-item]').forEach((el) =>
   el.addEventListener('click', (e) => {
+    let cover = e.target;
+
+    document
+      .querySelectorAll('[data-thumbs-item] .thumbnail-active')
+      .forEach((el) => {
+        el.classList.remove('thumbnail-active');
+      });
+
     let src = e.currentTarget.querySelector('img').src;
     mainImg.src = src;
+    cover.classList.add('thumbnail-active');
   })
 );
