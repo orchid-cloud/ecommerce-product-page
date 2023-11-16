@@ -85,19 +85,36 @@ buttons.forEach((button) => {
 //   }
 // });
 
-const productPic1 = document.getElementById('picture_1');
 const lightbox = document.getElementById('lightbox');
+const lightboxThumbs = document.querySelectorAll('[data-thumbs-item]');
 
-productPic1.addEventListener('click', () => {
+function startPreview(e, index) {
+  let imgsrc = e.target.src;
+  mainImg.src = imgsrc;
+
+  openLightbox();
+  removeThumbnailActive();
+  lightboxThumbs[index].querySelector('div').classList.add('thumbnail-active');
+}
+
+document
+  .querySelector('[data-main-image]')
+  .addEventListener('click', (e) => startPreview(e, 0));
+
+document.querySelectorAll('[data-main-thumb]').forEach((el, index) => {
+  el.addEventListener('click', (e) => startPreview(e, index));
+});
+
+function lightboxIsOpen() {
+  return lightbox.getAttribute('data-visible') === 'true';
+}
+
+function openLightbox() {
   const lightboxVisibility = lightbox.getAttribute('data-visible');
 
   if (lightboxVisibility === 'false') {
     lightbox.setAttribute('data-visible', 'true');
   }
-});
-
-function lightboxIsOpen() {
-  return lightbox.getAttribute('data-visible') === 'true';
 }
 
 function closeLightbox() {
@@ -128,22 +145,25 @@ document.onkeydown = function (evt) {
   }
 };
 
-//lightbox image slider on thumbnail click
+//lightbox image change on thumbnail click
 
 let mainImg = document.getElementById('main-img');
 
-document.querySelectorAll('[data-thumbs-item]').forEach((el) =>
+lightboxThumbs.forEach((el) =>
   el.addEventListener('click', (e) => {
+    removeThumbnailActive();
+
     let cover = e.target;
-
-    document
-      .querySelectorAll('[data-thumbs-item] .thumbnail-active')
-      .forEach((el) => {
-        el.classList.remove('thumbnail-active');
-      });
-
     let src = e.currentTarget.querySelector('img').src;
     mainImg.src = src;
     cover.classList.add('thumbnail-active');
   })
 );
+
+function removeThumbnailActive() {
+  document
+    .querySelectorAll('[data-thumbs-item] .thumbnail-active')
+    .forEach((el) => {
+      el.classList.remove('thumbnail-active');
+    });
+}
