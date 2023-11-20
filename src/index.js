@@ -59,43 +59,6 @@ buttons.forEach((button) => {
 
 //lightbox in desktop mode
 
-// const lightbox = document.createElement('div');
-// lightbox.id = 'lightbox';
-// document.body.appendChild(lightbox);
-
-// const images = document.querySelectorAll('img');
-// images.forEach((image) => {
-//   image.addEventListener('click', () => {
-//     lightbox.classList.add('active');
-
-//     const img = document.createElement('img');
-//     img.src = image.src;
-//     while (lightbox.firstChild) {
-//       lightbox.removeChild(lightbox.firstChild);
-//     }
-//     lightbox.appendChild(img);
-//   });
-// });
-
-// lightbox.addEventListener('click', (e) => {
-//   if (e.target !== e.currentTarget) {
-//     return;
-//   } else {
-//     lightbox.classList.remove('active');
-//   }
-// });
-
-const lightbox = document.getElementById('lightbox');
-const lightboxThumbs = document.querySelectorAll('[data-thumbs-item]');
-
-function startPreview(src, index) {
-  mainImg.src = src;
-
-  openLightbox();
-  removeThumbnailActive();
-  lightboxThumbs[index].querySelector('div').classList.add('thumbnail-active');
-}
-
 document
   .querySelector('[data-main-image]')
   .addEventListener('click', (e) => startPreview(e.target.src, 0));
@@ -104,14 +67,25 @@ document.querySelectorAll('[data-main-thumb]').forEach((el, index) => {
   el.addEventListener('click', (e) => startPreview(e.target.src, index));
 });
 
+let mainLightboxImg = document.getElementById('main-img');
+
+const lightbox = document.getElementById('lightbox');
+const lightboxThumbs = document.querySelectorAll('[data-thumbs-item]');
+
+function startPreview(src, index) {
+  mainLightboxImg.src = src;
+
+  openLightbox();
+  removeThumbnailActive();
+  lightboxThumbs[index].querySelector('div').classList.add('thumbnail-active');
+}
+
 function lightboxIsOpen() {
   return lightbox.getAttribute('data-visible') === 'true';
 }
 
 function openLightbox() {
-  const lightboxVisibility = lightbox.getAttribute('data-visible');
-
-  if (lightboxVisibility === 'false') {
+  if (!lightboxIsOpen()) {
     lightbox.setAttribute('data-visible', 'true');
   }
 }
@@ -120,6 +94,7 @@ function closeLightbox() {
   lightbox.setAttribute('data-visible', 'false');
 }
 
+//close on screen click
 document.addEventListener('click', (event) => {
   if (
     lightboxIsOpen() &&
@@ -130,7 +105,6 @@ document.addEventListener('click', (event) => {
 });
 
 //close on escape btn
-
 document.onkeydown = function (evt) {
   evt = evt || window.event;
   var isEscape = false;
@@ -146,16 +120,15 @@ document.onkeydown = function (evt) {
 
 //lightbox image change on thumbnail click
 
-let mainImg = document.getElementById('main-img');
-
 lightboxThumbs.forEach((el) =>
   el.addEventListener('click', (e) => {
     removeThumbnailActive();
 
-    let cover = e.target;
-    let src = e.currentTarget.querySelector('img').src;
-    mainImg.src = src;
-    cover.classList.add('thumbnail-active');
+    let thumbCover = e.target;
+    let thumb = e.currentTarget;
+
+    mainLightboxImg.src = thumb.querySelector('img').src;
+    thumbCover.classList.add('thumbnail-active');
   })
 );
 
@@ -169,26 +142,21 @@ function removeThumbnailActive() {
 
 //slider lightbox on button click
 
-// const thumbnailPictures = document.getElementById('thumbnail-pictures');
-
-// thumbnailPictures.addEventListener('click', (e) =>
-//   lightboxSlider(e.target.src, index)
-// );
 function lightboxSlider(e) {
   let direction = e.currentTarget.id === 'next' ? 1 : -1;
-  const thumbnailNodes = document.querySelectorAll('[data-thumbs-item]');
 
+  const thumbnailNodes = document.querySelectorAll('[data-thumbs-item]');
   const listThumbsPictures = Array.prototype.slice.call(thumbnailNodes);
 
   const index = listThumbsPictures.findIndex((el) =>
     el.querySelector('.thumbnail-active')
   );
-
-  const imgsrc = listThumbsPictures[index].querySelector('img').src;
   const nextIndex =
     index + direction < 0
       ? listThumbsPictures.length - 1
       : (index + direction) % listThumbsPictures.length;
+
+  const imgsrc = listThumbsPictures[nextIndex].querySelector('img').src;
   startPreview(imgsrc, nextIndex);
 }
 
