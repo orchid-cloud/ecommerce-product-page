@@ -88,9 +88,8 @@ buttons.forEach((button) => {
 const lightbox = document.getElementById('lightbox');
 const lightboxThumbs = document.querySelectorAll('[data-thumbs-item]');
 
-function startPreview(e, index) {
-  let imgsrc = e.target.src;
-  mainImg.src = imgsrc;
+function startPreview(src, index) {
+  mainImg.src = src;
 
   openLightbox();
   removeThumbnailActive();
@@ -99,10 +98,10 @@ function startPreview(e, index) {
 
 document
   .querySelector('[data-main-image]')
-  .addEventListener('click', (e) => startPreview(e, 0));
+  .addEventListener('click', (e) => startPreview(e.target.src, 0));
 
 document.querySelectorAll('[data-main-thumb]').forEach((el, index) => {
-  el.addEventListener('click', (e) => startPreview(e, index));
+  el.addEventListener('click', (e) => startPreview(e.target.src, index));
 });
 
 function lightboxIsOpen() {
@@ -167,3 +166,32 @@ function removeThumbnailActive() {
       el.classList.remove('thumbnail-active');
     });
 }
+
+//slider lightbox on button click
+
+// const thumbnailPictures = document.getElementById('thumbnail-pictures');
+
+// thumbnailPictures.addEventListener('click', (e) =>
+//   lightboxSlider(e.target.src, index)
+// );
+function lightboxSlider(e) {
+  let direction = e.currentTarget.id === 'next' ? 1 : -1;
+  const thumbnailNodes = document.querySelectorAll('[data-thumbs-item]');
+
+  const listThumbsPictures = Array.prototype.slice.call(thumbnailNodes);
+
+  const index = listThumbsPictures.findIndex((el) =>
+    el.querySelector('.thumbnail-active')
+  );
+
+  const imgsrc = listThumbsPictures[index].querySelector('img').src;
+  const nextIndex =
+    index + direction < 0
+      ? listThumbsPictures.length - 1
+      : (index + direction) % listThumbsPictures.length;
+  startPreview(imgsrc, nextIndex);
+}
+
+document
+  .querySelectorAll('[data-lightbox-controll]')
+  .forEach((el) => el.addEventListener('click', lightboxSlider));
