@@ -730,6 +730,18 @@ video {
   border-radius: 0.75rem;
 }
 
+.border-2 {
+  border-width: 2px;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.border-orange {
+  border-color: var(--orange);
+}
+
 .bg-light_gray {
   background-color: var(--light-gray);
 }
@@ -885,6 +897,14 @@ video {
   opacity: 0.6;
 }
 
+.opacity-70 {
+  opacity: 0.7;
+}
+
+.opacity-80 {
+  opacity: 0.8;
+}
+
 .backdrop-brightness-50 {
   --tw-backdrop-brightness: brightness(.5);
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
@@ -963,6 +983,10 @@ html {
 
 .hover\:opacity-70:hover {
   opacity: 0.7;
+}
+
+.hover\:opacity-60:hover {
+  opacity: 0.6;
 }
 
 .group:hover .group-hover\:fill-\[\#ff7d1a\] {
@@ -1449,6 +1473,10 @@ html {
     height: 7rem;
   }
 
+  .xl\:h-\[110px\] {
+    height: 110px;
+  }
+
   .xl\:w-14 {
     width: 3.5rem;
   }
@@ -1517,8 +1545,20 @@ html {
     border-radius: 0.75rem;
   }
 
+  .xl\:rounded-full {
+    border-radius: 9999px;
+  }
+
+  .xl\:border-2 {
+    border-width: 2px;
+  }
+
   .xl\:border-b-2 {
     border-bottom-width: 2px;
+  }
+
+  .xl\:border-transparent {
+    border-color: transparent;
   }
 
   .xl\:pl-0 {
@@ -1540,5 +1580,48 @@ html {
 
   .xl\:text-dark_gray {
     color: var(--dark-gray);
+  }
+
+  .xl\:hover\:mb-\[-2px\]:hover {
+    margin-bottom: -2px;
+  }
+
+  .hover\:xl\:w-24:hover {
+    width: 6rem;
+  }
+
+  .xl\:hover\:rounded-full:hover {
+    border-radius: 9999px;
+  }
+
+  .xl\:hover\:border:hover {
+    border-width: 1px;
+  }
+
+  .xl\:hover\:border-2:hover {
+    border-width: 2px;
+  }
+
+  .xl\:hover\:border-y-2:hover {
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+  }
+
+  .xl\:hover\:border-b-2:hover {
+    border-bottom-width: 2px;
+  }
+
+  @media (min-width: 993px) {
+    .xl\:xl\:hover\:border-b-2:hover {
+      border-bottom-width: 2px;
+    }
+  }
+
+  .xl\:hover\:border-orange:hover {
+    border-color: var(--orange);
+  }
+
+  .xl\:hover\:opacity-60:hover {
+    opacity: 0.6;
   }
 }
