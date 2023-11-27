@@ -1,3 +1,5 @@
+// const { doc } = require('prettier');
+
 const navigation = document.getElementById('navigation');
 const navToggle = document.getElementById('mobile-nav-toggle');
 const bg = document.getElementById('dark_bg');
@@ -163,3 +165,20 @@ function lightboxSlider(e) {
 document
   .querySelectorAll('[data-lightbox-controll]')
   .forEach((el) => el.addEventListener('click', lightboxSlider));
+
+//buttons item quantity
+
+const addItem = document.querySelector('#item-plus');
+const deductItem = document.querySelector('#item-minus');
+
+let itemQuantity = document.querySelector('#item-quantity');
+
+addItem.addEventListener('click', () => {
+  let currentItemNumber = parseInt(itemQuantity.innerHTML);
+  itemQuantity.innerHTML = currentItemNumber + 1;
+});
+
+deductItem.addEventListener('click', () => {
+  let currentItemNumber = parseInt(itemQuantity.innerHTML);
+  itemQuantity.innerHTML = currentItemNumber === 0 ? 0 : currentItemNumber - 1;
+});

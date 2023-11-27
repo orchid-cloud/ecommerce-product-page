@@ -282,6 +282,7 @@
                 class="quantity bg-light_gray rounded-lg font-bold flex justify-around items-center sm:mb-4 py-2.5 md:mb-6 lg:mb-8 xl:w-36"
               >
                 <button
+                  id="item-minus"
                   class="inline-flex items-center justify-center w-8 h-6 xl:hover:opacity-60"
                 >
                   <svg
@@ -299,8 +300,9 @@
                     <use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#a" />
                   </svg>
                 </button>
-                0
+                <span data-count="0" id="item-quantity">0</span>
                 <button
+                  id="item-plus"
                   class="inline-flex items-center justify-center w-8 h-6 xl:hover:opacity-60"
                 >
                   <svg
