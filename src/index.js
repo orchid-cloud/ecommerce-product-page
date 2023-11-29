@@ -182,3 +182,24 @@ deductItem.addEventListener('click', () => {
   let currentItemNumber = parseInt(itemQuantity.innerHTML);
   itemQuantity.innerHTML = currentItemNumber === 0 ? 0 : currentItemNumber - 1;
 });
+
+//cart open
+
+const cartShown = document.getElementById('cart-empty');
+const cartToggle = document.getElementById('cart-toggle');
+
+cartToggle.addEventListener('click', () => {
+  const visibility = cartShown.getAttribute('data-visible');
+
+  if (visibility === 'false') {
+    cartShown.setAttribute('data-visible', true);
+    cartToggle.setAttribute('area-expanded', true);
+  } else {
+    closeCart();
+  }
+});
+
+function closeCart() {
+  cartShown.setAttribute('data-visible', false);
+  cartToggle.setAttribute('area-expanded', false);
+}
