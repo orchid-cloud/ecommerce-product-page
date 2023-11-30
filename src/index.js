@@ -185,14 +185,15 @@ deductItem.addEventListener('click', () => {
 
 //cart open
 
-const cartShown = document.getElementById('cart-empty');
+const emptyCart = document.getElementById('cart-empty');
 const cartToggle = document.getElementById('cart-toggle');
 
-cartToggle.addEventListener('click', () => {
-  const visibility = cartShown.getAttribute('data-visible');
+cartToggle.addEventListener('click', (event) => {
+  event.stopPropagation();
+  const visibility = emptyCart.getAttribute('data-visible');
 
   if (visibility === 'false') {
-    cartShown.setAttribute('data-visible', true);
+    emptyCart.setAttribute('data-visible', true);
     cartToggle.setAttribute('area-expanded', true);
   } else {
     closeCart();
@@ -200,7 +201,7 @@ cartToggle.addEventListener('click', () => {
 });
 
 function closeCart() {
-  cartShown.setAttribute('data-visible', false);
+  emptyCart.setAttribute('data-visible', false);
   cartToggle.setAttribute('area-expanded', false);
 }
 
@@ -212,7 +213,8 @@ const quantityAdded = document.getElementById('quantity-added');
 const totalPrice = document.getElementById('total-price');
 const itemsInCart = document.getElementById('items-in-cart');
 
-addToCart.addEventListener('click', () => {
+addToCart.addEventListener('click', (event) => {
+  event.stopPropagation();
   const visibility = cartWithItem.getAttribute('data-visible');
   const currentItemNumber = parseInt(itemQuantity.innerHTML);
 
@@ -232,3 +234,17 @@ function calculatePrice() {
   const currentItemNumber = parseInt(itemQuantity.innerHTML);
   totalPrice.innerHTML = currentItemNumber * 125;
 }
+
+//cart close on screen click
+document.addEventListener('click', (event) => {
+  const cartVisibile = emptyCart.getAttribute('data-visible');
+  const tempCartVisibile = cartWithItem.getAttribute('data-visible');
+  if (
+    (cartVisibile === 'true' || tempCartVisibile === 'true') &&
+    !event.target.closest(`#${emptyCart.id}`) &&
+    !event.target.closest(`#${cartWithItem.id}`)
+  ) {
+    emptyCart.setAttribute('data-visible', 'false');
+    cartWithItem.setAttribute('data-visible', 'false');
+  }
+});
