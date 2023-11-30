@@ -594,12 +594,29 @@ video {
   z-index: 200;
 }
 
+.row-span-1 {
+  grid-row: span 1 / span 1;
+}
+
+.row-span-2 {
+  grid-row: span 2 / span 2;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .mb-10 {
   margin-bottom: 2.5rem;
 }
 
 .mb-5 {
   margin-bottom: 1.25rem;
+}
+
+.ml-5 {
+  margin-left: 1.25rem;
 }
 
 .mr-3 {
@@ -626,6 +643,10 @@ video {
   height: 2.5rem;
 }
 
+.h-12 {
+  height: 3rem;
+}
+
 .h-16 {
   height: 4rem;
 }
@@ -650,12 +671,20 @@ video {
   width: 2.5rem;
 }
 
+.w-12 {
+  width: 3rem;
+}
+
 .w-20 {
   width: 5rem;
 }
 
 .w-5 {
   width: 1.25rem;
+}
+
+.w-72 {
+  width: 18rem;
 }
 
 .w-8 {
@@ -698,12 +727,28 @@ video {
   justify-content: space-around;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-2\.5 {
+  gap: 0.625rem;
+}
+
 .gap-5 {
   gap: 1.25rem;
 }
 
 .self-end {
   align-self: flex-end;
+}
+
+.self-center {
+  align-self: center;
+}
+
+.justify-self-center {
+  justify-self: center;
 }
 
 .overflow-hidden {
@@ -732,6 +777,10 @@ video {
 
 .border-2 {
   border-width: 2px;
+}
+
+.border-b-2 {
+  border-bottom-width: 2px;
 }
 
 .border-orange {
@@ -863,6 +912,11 @@ video {
 
 .tracking-widest {
   letter-spacing: 0.1em;
+}
+
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .text-dark_gray {
@@ -1403,14 +1457,6 @@ html {
     top: 6rem;
   }
 
-  .xl\:row-span-1 {
-    grid-row: span 1 / span 1;
-  }
-
-  .xl\:row-span-2 {
-    grid-row: span 2 / span 2;
-  }
-
   .xl\:m-auto {
     margin: auto;
   }
@@ -1438,10 +1484,6 @@ html {
 
   .xl\:ml-20 {
     margin-left: 5rem;
-  }
-
-  .xl\:ml-5 {
-    margin-left: 1.25rem;
   }
 
   .xl\:flex {
@@ -1549,14 +1591,6 @@ html {
     gap: 2rem;
   }
 
-  .xl\:self-center {
-    align-self: center;
-  }
-
-  .xl\:justify-self-center {
-    justify-self: center;
-  }
-
   .xl\:rounded-full {
     border-radius: 9999px;
   }
@@ -1600,10 +1634,6 @@ html {
   .xl\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
-  }
-
-  .xl\:font-bold {
-    font-weight: 700;
   }
 
   .xl\:text-dark_gray {

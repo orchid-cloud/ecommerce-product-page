@@ -203,3 +203,27 @@ function closeCart() {
   cartShown.setAttribute('data-visible', false);
   cartToggle.setAttribute('area-expanded', false);
 }
+
+//add to cart
+
+const cartWithItem = document.getElementById('cart-filled');
+const addToCart = document.getElementById('add-to-cart');
+const quantityAdded = document.getElementById('quantity-added');
+const totalPrice = document.getElementById('total-price');
+
+addToCart.addEventListener('click', () => {
+  const visibility = cartWithItem.getAttribute('data-visible');
+  const currentItemNumber = parseInt(itemQuantity.innerHTML);
+
+  if (visibility === 'false' && currentItemNumber > 0) {
+    cartWithItem.setAttribute('data-visible', true);
+    addToCart.setAttribute('area-expanded', true);
+    quantityAdded.innerHTML = currentItemNumber;
+    calculatePrice();
+  } else return;
+});
+
+function calculatePrice() {
+  const currentItemNumber = parseInt(itemQuantity.innerHTML);
+  totalPrice.innerHTML = currentItemNumber * 125;
+}
