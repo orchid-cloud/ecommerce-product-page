@@ -210,6 +210,7 @@ const cartWithItem = document.getElementById('cart-filled');
 const addToCart = document.getElementById('add-to-cart');
 const quantityAdded = document.getElementById('quantity-added');
 const totalPrice = document.getElementById('total-price');
+const itemsInCart = document.getElementById('items-in-cart');
 
 addToCart.addEventListener('click', () => {
   const visibility = cartWithItem.getAttribute('data-visible');
@@ -219,6 +220,10 @@ addToCart.addEventListener('click', () => {
     cartWithItem.setAttribute('data-visible', true);
     addToCart.setAttribute('area-expanded', true);
     quantityAdded.innerHTML = currentItemNumber;
+    
+    itemsInCart.classList.remove("hidden");
+    itemsInCart.classList.add('inline-flex');
+    itemsInCart.innerHTML = currentItemNumber;
     calculatePrice();
   } else return;
 });

@@ -91,7 +91,7 @@
         <div class="flex justify-between items-center">
           <button
             id="cart-toggle"
-            class="cart sm:pr-6 md:pr-8 lg:pr-12 xl:pr-14"
+            class="cart relative sm:pr-6 md:pr-8 lg:pr-12 xl:pr-14 "
             aria-expanded="false"
           >
             <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
@@ -101,6 +101,17 @@
                 fill-rule="nonzero"
               />
             </svg>
+            <span
+              id="cart-items-toggle"
+              class=" absolute top-[-1rem] left-[7px] object-right-top "
+            >
+              <div
+                id="items-in-cart"
+                class="hidden items-center px-2.5  border-2 border-white rounded-xl text-[10px] font-semibold leading-4 bg-orange_svg text-white"
+              >
+                6
+              </div>
+            </span>
           </button>
 
           <div
@@ -151,7 +162,7 @@
           <div class="text-sm">
             <div class="text-dark_gray">Fall Limited Edition Sneakers</div>
             <div class="text-dark_gray">
-              $125.00 x <span id="quantity-added">3</span>
+              $125.00 x <span id="quantity-added"></span>
               <span class="font-bold text-black"
                 >$<span id="total-price">375.00</span></span
               >
