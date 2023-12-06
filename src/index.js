@@ -222,8 +222,8 @@ addToCart.addEventListener('click', (event) => {
     cartWithItem.setAttribute('data-visible', true);
     addToCart.setAttribute('area-expanded', true);
     quantityAdded.innerHTML = currentItemNumber;
-    
-    itemsInCart.classList.remove("hidden");
+
+    itemsInCart.classList.remove('hidden');
     itemsInCart.classList.add('inline-flex');
     itemsInCart.innerHTML = currentItemNumber;
     calculatePrice();
@@ -247,4 +247,14 @@ document.addEventListener('click', (event) => {
     emptyCart.setAttribute('data-visible', 'false');
     cartWithItem.setAttribute('data-visible', 'false');
   }
+});
+
+//remove items from cart on delete button click
+
+const removeItems = document.getElementById('remove-items');
+
+removeItems.addEventListener('click', () => {
+  cartWithItem.setAttribute('data-visible', 'false');
+  emptyCart.setAttribute('data-visible', 'true');
+  itemsInCart.classList.add('hidden');
 });
