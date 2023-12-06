@@ -257,4 +257,5 @@ removeItems.addEventListener('click', () => {
   cartWithItem.setAttribute('data-visible', 'false');
   emptyCart.setAttribute('data-visible', 'true');
   itemsInCart.classList.add('hidden');
+  itemQuantity.innerHTML = 0;
 });
