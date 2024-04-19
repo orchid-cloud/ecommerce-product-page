@@ -614,6 +614,11 @@ video {
   grid-row: span 2 / span 2;
 }
 
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1052,6 +1057,11 @@ html {
   font-family: 'Kumbh Sans', sans-serif;
 }
 
+/* 
+body {
+  overflow-x: hidden;
+} */
+
 .mobile-nav-toggle[aria-expanded='true'] {
   background-image: url(../images/icon-close.svg);
 }
@@ -1065,6 +1075,10 @@ html {
 .thumbnail-active {
   border: 1px solid var(--orange);
   background: rgba(255, 255, 255, 0.7);
+}
+
+#cart-empty[data-visible='false'] {
+  display: none;
 }
 
 .hover\:bg-white:hover {

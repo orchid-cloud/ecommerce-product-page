@@ -190,18 +190,22 @@ const cartToggle = document.getElementById('cart-toggle');
 
 cartToggle.addEventListener('click', (event) => {
   event.stopPropagation();
-  const visibility = emptyCart.getAttribute('data-visible');
+  const cart = itemsInCart.classList.contains('hidden')
+    ? emptyCart
+    : cartWithItem;
+
+  const visibility = cart.getAttribute('data-visible');
 
   if (visibility === 'false') {
-    emptyCart.setAttribute('data-visible', true);
+    cart.setAttribute('data-visible', true);
     cartToggle.setAttribute('area-expanded', true);
   } else {
-    closeCart();
+    closeCart(cart);
   }
 });
 
-function closeCart() {
-  emptyCart.setAttribute('data-visible', false);
+function closeCart(cart) {
+  cart.setAttribute('data-visible', false);
   cartToggle.setAttribute('area-expanded', false);
 }
 

@@ -21,6 +21,10 @@
 html {
   font-family: 'Kumbh Sans', sans-serif;
 }
+/* 
+body {
+  overflow-x: hidden;
+} */
 
 .mobile-nav-toggle[aria-expanded='true'] {
   background-image: url(../images/icon-close.svg);
@@ -35,4 +39,8 @@ html {
 .thumbnail-active {
   border: 1px solid var(--orange);
   background: rgba(255, 255, 255, 0.7);
+}
+
+#cart-empty[data-visible='false'] {
+  display: none;
 }
