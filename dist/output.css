@@ -1225,6 +1225,10 @@ body {
     justify-content: center;
   }
 
+  .sm\:gap-6 {
+    gap: 1.5rem;
+  }
+
   .sm\:rounded-full {
     border-radius: 9999px;
   }
@@ -1235,10 +1239,6 @@ body {
 
   .sm\:pl-7 {
     padding-left: 1.75rem;
-  }
-
-  .sm\:pr-6 {
-    padding-right: 1.5rem;
   }
 
   .sm\:pt-24 {
@@ -1376,6 +1376,10 @@ body {
     justify-content: center;
   }
 
+  .md\:gap-8 {
+    gap: 2rem;
+  }
+
   .md\:rounded-full {
     border-radius: 9999px;
   }
@@ -1386,10 +1390,6 @@ body {
 
   .md\:pl-7 {
     padding-left: 1.75rem;
-  }
-
-  .md\:pr-8 {
-    padding-right: 2rem;
   }
 
   .md\:pt-24 {
@@ -1527,6 +1527,10 @@ body {
     justify-content: center;
   }
 
+  .lg\:gap-12 {
+    gap: 3rem;
+  }
+
   .lg\:rounded-full {
     border-radius: 9999px;
   }
@@ -1541,10 +1545,6 @@ body {
 
   .lg\:pl-7 {
     padding-left: 1.75rem;
-  }
-
-  .lg\:pr-12 {
-    padding-right: 3rem;
   }
 
   .lg\:pt-24 {
@@ -1682,6 +1682,10 @@ body {
     align-items: center;
   }
 
+  .xl\:gap-14 {
+    gap: 3.5rem;
+  }
+
   .xl\:gap-20 {
     gap: 5rem;
   }
@@ -1720,10 +1724,6 @@ body {
 
   .xl\:pl-0 {
     padding-left: 0px;
-  }
-
-  .xl\:pr-14 {
-    padding-right: 3.5rem;
   }
 
   .xl\:text-left {
